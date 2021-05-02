@@ -12,14 +12,43 @@ router.get('/', async (req, res, next) => {
   }
 });
 
+router.get('/:pid', async (req, res, next) => {
+  const petId = req.params.pid;
+  let pet;
+  try {
+      pet = await Pet.findById(petId)
+  } catch (err) {
+    throw new Error('could not find');
+  }
+  if (!pet){
+   return  res.status(404).json({message:'no pets found'})
+  }
+
+  res.json({pet: pet}); 
+});
+
 router.post('/', async (req, res) => {
-  const newPet = new Pet({
-    name: req.body.name,
-    type: req.body.type,
-    status: req.body.status
+  try {
+  const { Type, Name, AdoptionStatus, Picture, Height, Weight, Color, Bio, Hypoallergenic, DietaryRestrictions, Breed } = req.body
+  const AddAPet = new Pet({
+    
+    Type,
+    Name,
+    AdoptionStatus,
+    Picture,
+     Height,
+     Weight,
+     Color,
+     Bio,
+     Hypoallergenic,
+     DietaryRestrictions,
+     Breed
   })
-  await newPet.save();
-  res.send(newPet);
+  await AddAPet.save();
+  res.send(AddAPet);
+}   catch(err) {
+    next(err); 
+}
 })
 
 
