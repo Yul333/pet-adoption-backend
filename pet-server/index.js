@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');                                                                                                                                      
-
+const usersRoutes = require ('./routes/Users.routes')
 const petsRouter = require('./routes/pets.routes');
 
 const app = express();
@@ -16,6 +16,8 @@ mongoose
     console.log('connected to DB...');
 
     app.use('/api/pets', petsRouter);
+    app.use('/api/users', usersRoutes);
+
     // app.use('/api/orders', ordersRouter);
 
     app.listen('5050', () => {

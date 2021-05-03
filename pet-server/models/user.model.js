@@ -3,46 +3,46 @@ const bcrypt = require('bcryptjs');
 
 const UserSchema = new mongoose.Schema({
 
-    name: {
+    firstName: {
         type:String,
         required: true,
     },
-    last_name:{
+    lastName:{
         type:String,
         required: true,
     },
     email:{
         type:String,
         required: true,
-        unique: true
+        // unique: true
     },
     password:{
         type:String,
         required: true,
     },
-    repPass:{
-        type:String,
-        required: true,
-    },
-    phone:{
+    // repPass:{
+    //     type:String,
+    //     required: true,
+    // },
+    phoneNumber:{
         type:Number,
         required: true,
     }
 })
 
-UserSchema.pre('save', async function(next){
-      const salt = await bcrypt.genSalt(10);
-    this.password = await bcrypt.hash(this.password, salt);
-    next();
-})
+// UserSchema.pre('save', async function(next){
+//       const salt = await bcrypt.genSalt(10);
+//     this.password = await bcrypt.hash(this.password, salt);
+//     next();
+// })
 
 //Validating password
 //entered password come from login
 //comparing the hashed password with the entered by the user
-UserSchema.methods.isPasswordMatch = async function(enteredPassword){
-    return await bcrypt.compare(enteredPassword, this.password);
+// UserSchema.methods.isPasswordMatch = async function(enteredPassword){
+//     return await bcrypt.compare(enteredPassword, this.password);
 
-}
+// }
 
 const User = mongoose.model('User',UserSchema);
 module.exports = User;
