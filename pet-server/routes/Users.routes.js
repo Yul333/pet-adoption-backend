@@ -15,6 +15,7 @@ router.post("/signup", async (req, res, next) => {
 			lastName,
 			email,
 			password: hashedPassword,
+           
 			phoneNumber,
             
 		});
@@ -40,7 +41,7 @@ router.post("/login", async (req, res, next) => {
 		}
 		console.log(existingUser.password);
 		bcrypt.compare(password, existingUser.password, (err, result) => {
-            
+
 			console.log(result);
 			if (err) next(err);
 			else {
