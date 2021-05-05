@@ -61,10 +61,12 @@ router.delete('/:pid',  async  (req, res, next) => {
   }
 }
 )
-router.post('/', auth, async (req, res) => {
+router.post('/',  async (req, res) => {
+  //auth,
     try {
   const { Type, Name, AdoptionStatus, Picture, Height, Weight, Color, Bio, Hypoallergenic, DietaryRestrictions, Breed } = req.body
-  const userId =  req.user.id
+  // const userId =  req.user.id
+ 
   const AddAPet = new Pet({
     
     Type,
@@ -78,7 +80,7 @@ router.post('/', auth, async (req, res) => {
      Hypoallergenic,
      DietaryRestrictions,
      Breed, 
-     userId
+    //  userId
      
 
   })
