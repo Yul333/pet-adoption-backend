@@ -26,9 +26,11 @@ const UserSchema = new mongoose.Schema({
     // },
     phoneNumber:{
         type:Number,
-        required: true,
-    }
+        // required: true,
+    },
+     myPetsIds:[String]
 })
+
 
 // UserSchema.pre('save', async function(next){
 //       const salt = await bcrypt.genSalt(10);
