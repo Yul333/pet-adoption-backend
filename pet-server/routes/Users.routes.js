@@ -28,7 +28,7 @@ router.post("/signup", async (req, res, next) => {
 });
 
 
-router.put('/:id',async (req, res) => {
+router.put('/account/:id',async (req, res) => {
     const user = await User.findById(req.params.id);
     if (user) {
         const updatedUser = await User.findByIdAndUpdate(

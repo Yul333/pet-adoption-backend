@@ -33,7 +33,7 @@ router.get("/", async (req, res, next) => {
 		next(err);
 	}
 });
-router.post("/",auth, async (req, res) => {
+router.post("/", async (req, res) => {
 	//auth,
 	try {
 		const {

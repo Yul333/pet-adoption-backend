@@ -4,47 +4,47 @@ mongoose.Promise = global.Promise;
 const schema = new mongoose.Schema({
 	Type: {
         type:String,
-        required: true,
+        // required: true,
     },
 	Name: {
         type:String,
-        required: true,
+        // required: true,
     },
     AdoptionStatus: {
         type:String,
-        required: true,
+        // required: true,
     },
 	Picture: {
         type:String,
-        required: true,
+        // required: true,
     },
     Height: {
         type:Number,
-        required: true,
+        // required: true,
     },
     Weight: {
         type:Number,
-        required: true,
+        // required: true,
     },
     Color: {
         type:String,
-        required: true,
+        // required: true,
     },
     Bio: {
         type:String,
-        required: true,
+        // required: true,
     },
     Hypoallergenic: {
         type:String,
-        required: true,
+        // required: true,
     },
     DietaryRestrictions: {
         type:String,
-        required: true,
+        // required: true,
     },
     Breed: {
         type:String,
-        required: true,
+        // required: true,
     },
 });
 
